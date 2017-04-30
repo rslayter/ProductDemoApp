@@ -1,0 +1,19 @@
+﻿@{
+	ViewBag.Title = "Products";
+}
+
+<div class="jumbotron">
+	<h1>Products</h1>
+	<p class="lead">Here are our featured products. Click on an image to learn more. </p>
+</div>
+
+<div>
+	<div id="products">
+		<div class="col-md-4" ng-repeat="product in products">
+			<h2>{{product.Name}}</h2>
+			<img src={{product.Image}} />
+			<h4>{{product.Cost}}</h4>
+			<p>{{product.Description}}</p>
+		</div>
+	</div>
+</div>
