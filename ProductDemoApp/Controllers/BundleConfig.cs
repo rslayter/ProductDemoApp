@@ -8,8 +8,7 @@ namespace ProductDemoApp
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/angularjs")
-                .Include("~/Scripts/angular.*")
-                .Include("~/Scripts/angular-*"));
+                .Include("~/Scripts/ng-infinite-scroll.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
@@ -23,19 +22,18 @@ namespace ProductDemoApp
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/bootstrap.min.js",
+                      "~/Scripts/respond.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css")
-                .IncludeDirectory("~/Content/Images", "*.jpeg")
-                .Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                .Include("~/Content/bootstrap.min.css")
+                .Include("~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/ProductDemoApp")
                 .Include("~/Scripts/ProductDemoApp.js")
                 .IncludeDirectory("~/Scripts/Service", "*.js")
                 .IncludeDirectory("~/Scripts/Controllers", "*.js"));
+
         }
     }
 }

@@ -26,11 +26,12 @@ namespace ProductDemoApp.Api.Service
                 product.Id = index + i;
                 product.Name = "Product " + product.Id;
                 product.Cost = "$" + product.Id + ".00";
-                product.Description = "This is a description for product " + product.Id + ".";
-                product.Image = "/Content/Images/image_" + i + ".jpeg";
+                product.Description = product.Name + " is the best in class for what it does. "
+                                      + "It offers a superior benefit compared to the other products on the market. "
+                                      + "For the low price of " + product.Cost + ", you won't find another product like it.";
+                product.Image = "/images/image_" + i + ".jpeg";
                 products.Add(product);
             }
-            index = index + numProducts;
             return products;
         }
 
@@ -45,7 +46,7 @@ namespace ProductDemoApp.Api.Service
             product.Name = "Product " + product.Id + 1;
             product.Cost = "$" + product.Id + ".00";
             product.Description = "This is a description for product " + product.Id + ".";
-            product.Image = "/Content/Images/image_" + (product.Id % 12) + ".jpeg";
+            product.Image = "/images/image_" + (product.Id % 12) + ".jpeg";
 
             return product;
         }

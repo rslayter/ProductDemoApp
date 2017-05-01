@@ -9,12 +9,12 @@ namespace ProductDemoApp.Api.Controllers
     {
         ProductService productService;
 
-        // GET: api/products
-        public IEnumerable<ProductModel> getProducts()
+        // GET: api/products?index=12
+        public IEnumerable<ProductModel> getProducts(int index)
         {
             productService = new ProductService();
-            List<ProductModel> products = new List<ProductModel>();
-            products = productService.getProducts(0);
+            IEnumerable<ProductModel> products = new List<ProductModel>();
+            products = productService.getProducts(index);
             return products;
         }
 

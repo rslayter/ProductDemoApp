@@ -1,20 +1,34 @@
 ﻿angular.module('ProductDemoApp').controller('ProductsPageController', ['$scope', 'ProductsService', function ($scope, ProductsService) {
+    $scope.busy = false;
+    $scope.index = 0;
+    $scope.products = [];
 
-    $scope.products;
+    getNextProducts();
 
-    getAllProducts();
+    function getNextProducts() {
+        var products = $scope.products;
+        var newProducts = [];
+        if ($scope.busy) {
+            return;
+        }
 
-    $scope.test = {
-        helloAngular: 'I work!'
-    };
-
-    function getAllProducts() {
-        ProductsService.getProducts()
+        $scope.busy = true;
+        ProductsService.getProducts($scope.index)
             .then(function (response) {
-                $scope.products = response.data;
+                newProducts = response.data;
+                $scope.products = products.concat(newProducts);
+
+                //$scope.products.concat(response.data);
+                $scope.index = $scope.index + 12;
+                $scope.busy = false;
             }, function (error) {
-                $log.error("Something went wrong while fetching the product data.")
+                console.log("Something went wrong while fetching the product data." + error)
+                $scope.busy = false;
             });
     }
+
+    $scope.loadProducts = function () {
+        getNextProducts();
+    };
 }]);
 
