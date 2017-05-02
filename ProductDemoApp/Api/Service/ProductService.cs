@@ -29,7 +29,7 @@ namespace ProductDemoApp.Api.Service
                 product.Description = product.Name + " is the best in class for what it does. "
                                       + "It offers a superior benefit compared to the other products on the market. "
                                       + "For the low price of " + product.Cost + ", you won't find another product like it.";
-                product.Image = "/images/image_" + i + ".jpeg";
+                product.Image = "/images/image_" + i + ".jpg";
                 products.Add(product);
             }
             return products;

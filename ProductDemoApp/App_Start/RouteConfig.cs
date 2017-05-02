@@ -15,7 +15,7 @@ namespace ProductDemoApp
 
             routes.MapRoute(
                 name: "Default",
-                url: "{action}",
+                url: "{controller}/{action}",
                 defaults: new { controller = "Products", action = "Products" }
             );
         }
