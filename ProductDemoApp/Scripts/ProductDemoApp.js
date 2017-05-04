@@ -1,6 +1,6 @@
-﻿var ProductDemoApp = angular.module('ProductDemoApp', ['ngRoute', 'infinite-scroll']);
+﻿var ProductDemoApp = angular.module('ProductDemoApp', ['ngRoute', 'ui.bootstrap', 'bootstrapLightbox', 'infinite-scroll']);
 
-ProductDemoApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+ProductDemoApp.config(['$routeProvider', '$locationProvider', 'LightboxProvider', function ($routeProvider, $locationProvider, LightboxProvider) {
     $routeProvider
         .when('/', {
             controller: 'ProductsController',
@@ -12,4 +12,15 @@ ProductDemoApp.config(['$routeProvider', '$locationProvider', function ($routePr
         .otherwise({ redirectTo: '/' })
 
     $locationProvider.html5Mode(true);
+
+    LightboxProvider.getImageUrl = function (product) {
+        return product.Image;
+    }
+
+    LightboxProvider.getImageCaption = function (product) {
+        return product.Name;
+    }
+
+    LightboxProvider.fullScreenMode = true;
+
 }])

@@ -7,7 +7,16 @@ namespace ProductDemoApp
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+
+            bundles.Add(new StyleBundle("~/Content/css")
+                .Include("~/Content/bootstrap.min.css")
+                .Include("~/Content/bootstrap-theme.min.css")
+                .Include("~/Content/ui-bootstrap-csp.css")
+                .Include("~/Content/angular-bootstrap-lightbox.min.css")
+                .Include("~/Content/site.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/angularjs")
+                .Include("~/Scripts/angular-bootstrap-lightbox.min.js")
                 .Include("~/Scripts/ng-infinite-scroll.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -24,10 +33,6 @@ namespace ProductDemoApp
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.min.js",
                       "~/Scripts/respond.min.js"));
-
-            bundles.Add(new StyleBundle("~/Content/css")
-                .Include("~/Content/bootstrap.min.css")
-                .Include("~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/ProductDemoApp")
                 .Include("~/Scripts/ProductDemoApp.js")

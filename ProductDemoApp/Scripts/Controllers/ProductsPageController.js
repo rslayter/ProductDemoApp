@@ -1,4 +1,4 @@
-﻿angular.module('ProductDemoApp').controller('ProductsPageController', ['$scope', 'ProductsService', function ($scope, ProductsService) {
+﻿angular.module('ProductDemoApp').controller('ProductsPageController', ['$scope', 'ProductsService', 'Lightbox', function ($scope, ProductsService, Lightbox) {
     $scope.busy = false;
     $scope.index = 0;
     $scope.products = [];
@@ -11,14 +11,11 @@
         if ($scope.busy) {
             return;
         }
-
         $scope.busy = true;
         ProductsService.getProducts($scope.index)
             .then(function (response) {
                 newProducts = response.data;
                 $scope.products = products.concat(newProducts);
-
-                //$scope.products.concat(response.data);
                 $scope.index = $scope.index + 12;
                 $scope.busy = false;
             }, function (error) {
@@ -29,6 +26,10 @@
 
     $scope.loadProducts = function () {
         getNextProducts();
+    };
+
+    $scope.openProductModal = function (index) {
+        Lightbox.openModal($scope.products, index);
     };
 }]);
 
