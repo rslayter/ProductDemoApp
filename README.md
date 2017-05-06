@@ -1,5 +1,5 @@
 # Product Demo Application
-<p>I created this application as a way to demonstrate my proficiency and skills in the techonologies used.</p>
+<p>I created this application as a way to demonstrate my proficiency and skills in the technologies used.</p>
 <h2>This application consists of:</h2>
 <ul>
 	<li>A dynamic front end using AngularJS and Bootstrap</li>
