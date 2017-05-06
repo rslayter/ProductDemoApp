@@ -14,11 +14,11 @@ ProductDemoApp.config(['$routeProvider', '$locationProvider', 'LightboxProvider'
     $locationProvider.html5Mode(true);
 
     LightboxProvider.getImageUrl = function (product) {
-        return product.Image;
+        return product.image;
     }
 
     LightboxProvider.getImageCaption = function (product) {
-        return product.Name;
+        return product.name;
     }
 
     LightboxProvider.fullScreenMode = true;
